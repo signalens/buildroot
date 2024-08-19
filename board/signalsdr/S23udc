@@ -18,6 +18,16 @@ else
 	USB_NET_FUNCTION=rndis.0
 fi
 
+if [ "$USB_ETH_MODE" == "ncm" ]
+then
+	USB_NET_FUNCTION=ncm.usb0
+elif [ "$USB_ETH_MODE" == "ecm" ]
+then
+	USB_NET_FUNCTION=ecm.usb0
+else
+	USB_NET_FUNCTION=rndis.0
+fi
+
 create_iiod_context_attributes() {
 	model=$1
 	serial=$2
